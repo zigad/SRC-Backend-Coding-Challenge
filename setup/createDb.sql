@@ -8,5 +8,18 @@ VALUES
     (234567, 'Forrest Gump', 'Forrest Gump, while not intelligent, has accidentally been present at many historic moments, but his true love, Jenny, eludes him.', 1994, 'https://example.com/forrestgump.jpg'),
     (890123, 'The Dark Knight', 'Batman sets out to dismantle the remaining criminal organizations that plague Gotham City.', 2008, 'https://example.com/thedarkknight.jpg'),
     (456789, 'Interstellar', 'A team of explorers travels through a wormhole in space to ensure humanitys survival.', 2014, 'https://example.com/interstellar.jpg'),
-(678901, 'The Godfather', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', 1972, 'https://example.com/thegodfather.jpg'),
-(345612, 'Gladiator', 'A former Roman General seeks revenge against the corrupt emperor who murdered his family and sent him into slavery.', 2000, 'https://example.com/gladiator.jpg');
+    (678901, 'The Godfather', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', 1972, 'https://example.com/thegodfather.jpg'),
+    (345612, 'Gladiator', 'A former Roman General seeks revenge against the corrupt emperor who murdered his family and sent him into slavery.', 2000, 'https://example.com/gladiator.jpg');
+
+INSERT INTO public.actor (firstName, lastName, birthday)
+VALUES
+    ('Tom', 'Hanks', '1956-07-09'),
+    ('Scarlett', 'Johansson', '1984-11-22'),
+    ('Leonardo', 'DiCaprio', '1974-11-11'),
+    ('Brad', 'Pitt', '1963-12-18'),
+    ('Angelina', 'Jolie', '1975-06-04'),
+    ('Johnny', 'Depp', '1963-06-09'),
+    ('Meryl', 'Streep', '1949-06-22'),
+    ('Denzel', 'Washington', '1954-12-28'),
+    ('Jennifer', 'Lawrence', '1990-08-15'),
+    ('Robert', 'Downey Jr.', '1965-04-04');
