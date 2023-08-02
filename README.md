@@ -10,7 +10,6 @@ Welcome to the Movie and Actor Management Backend! This is a backend application
 - [Getting Started](#getting-started)
 - [Endpoints](#endpoints)
 - [Dockerization](#dockerization)
-- [Optional: Docker Compose](#optional-docker-compose)
 - [Testing](#testing)
 
 ## Description
