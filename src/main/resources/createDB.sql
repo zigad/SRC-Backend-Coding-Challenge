@@ -11,15 +11,28 @@ VALUES
     (678901, 'The Godfather', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', 1972, 'https://example.com/thegodfather.jpg'),
     (345612, 'Gladiator', 'A former Roman General seeks revenge against the corrupt emperor who murdered his family and sent him into slavery.', 2000, 'https://example.com/gladiator.jpg');
 
-INSERT INTO public.actor (firstName, lastName, birthday)
+INSERT INTO public.actor (id, firstName, lastName, birthday)
 VALUES
-    ('Tom', 'Hanks', '1956-07-09'),
-    ('Scarlett', 'Johansson', '1984-11-22'),
-    ('Leonardo', 'DiCaprio', '1974-11-11'),
-    ('Brad', 'Pitt', '1963-12-18'),
-    ('Angelina', 'Jolie', '1975-06-04'),
-    ('Johnny', 'Depp', '1963-06-09'),
-    ('Meryl', 'Streep', '1949-06-22'),
-    ('Denzel', 'Washington', '1954-12-28'),
-    ('Jennifer', 'Lawrence', '1990-08-15'),
-    ('Robert', 'Downey Jr.', '1965-04-04');
+    (1, 'Tom', 'Hanks', '1956-07-09'),
+    (2,'Scarlett', 'Johansson', '1984-11-22'),
+    (3,'Leonardo', 'DiCaprio', '1974-11-11'),
+    (4,'Brad', 'Pitt', '1963-12-18'),
+    (5,'Angelina', 'Jolie', '1975-06-04'),
+    (6,'Johnny', 'Depp', '1963-06-09'),
+    (7,'Meryl', 'Streep', '1949-06-22'),
+    (8,'Denzel', 'Washington', '1954-12-28'),
+    (9,'Jennifer', 'Lawrence', '1990-08-15'),
+    (10,'Robert', 'Downey Jr.', '1965-04-04');
+
+INSERT INTO public.movie_actor (actor_id, movie_id)
+VALUES
+    (1, 901234),  -- Tom Hanks in "The Shawshank Redemption"
+    (1, 234567),  -- Tom Hanks in "Forrest Gump"
+    (2, 789012),  -- Scarlett Johansson in "Inception"
+    (3, 789012),  -- Leonardo DiCaprio in "Inception"
+    (4, 678901),  -- Brad Pitt in "The Godfather"
+    (5, 678901),  -- Angelina Jolie in "The Godfather"
+    (6, 345612),  -- Johnny Depp in "Gladiator"
+    (7, 567890),  -- Meryl Streep in "The Lord of the Rings"
+    (8, 345678), -- Denzel Washington in "Pulp Fiction"
+    (9, 123456);  -- Jennifer Lawrence in "The Matrix"

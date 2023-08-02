@@ -2,8 +2,10 @@ package si.deisinger.resource;
 
 
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import si.deisinger.interceptor.RequestCounted;
 import si.deisinger.model.Actor;
 import si.deisinger.service.ActorService;
@@ -58,4 +60,20 @@ public class ActorResource {
 	public List<Actor> searchActors(@QueryParam("keyword") String keyword) {
 		return actorService.searchActors(keyword);
 	}
+
+	// Endpoint to add Movies to Actors using Query
+	@Transactional
+	@POST
+	@Path("/{id}")
+	public Response addMovieToActor(@PathParam("id") Long id, @QueryParam("addMovie") int movieId) {
+		Actor actor = Actor.findById(id);
+		if (actor != null) {
+			actor.addMovie(movieId);
+			actor.persist();
+			return Response.ok(actor).build();
+		} else {
+			return Response.status(Response.Status.NOT_FOUND).build();
+		}
+	}
+
 }

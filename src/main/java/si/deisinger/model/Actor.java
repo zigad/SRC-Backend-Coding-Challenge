@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Entity
-@JsonbPropertyOrder({"id", "firstName", "lastName", "birthday"})
+@JsonbPropertyOrder({"id", "firstName", "lastName", "birthday", "movies"})
 public class Actor extends PanacheEntityBase {
 
 	@Id
@@ -21,13 +21,37 @@ public class Actor extends PanacheEntityBase {
 	private Long id;
 
 	@JsonbProperty("firstName")
-	public String firstName;
+	private String firstName;
 
 	@JsonbProperty("lastName")
-	public String lastName;
+	private String lastName;
 
 	@JsonbProperty("birthday")
-	public LocalDate birthday;
+	private LocalDate birthday;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+			name = "movie_actor",
+			joinColumns = @JoinColumn(name = "actor_id"),
+			inverseJoinColumns = @JoinColumn(name = "movie_id")
+	)
+	private List<Movie> movies = new ArrayList<>(); // Initialize movies to an empty list
+
+	@JsonbProperty("movies") // Custom serialization for the 'movies' field
+	public List<String> getMovies() {
+		if (movies == null) {
+			return Collections.emptyList(); // Return an empty list if actors are null
+		}
+		return movies.stream().map(Movie::getTitle).collect(Collectors.toList());
+	}
+
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
+	}
+
+	public void addMovie(int id){
+		this.movies.add(Movie.findById(id));
+	}
 
 	public Long getId() {
 		return id;
@@ -59,5 +83,9 @@ public class Actor extends PanacheEntityBase {
 
 	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
+	}
+
+	public String getFullName() {
+		return firstName + " " + lastName;
 	}
 }

@@ -7,7 +7,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import si.deisinger.model.Actor;
-import si.deisinger.model.Movie;
 import si.deisinger.repository.ActorRepository;
 
 import java.util.List;
